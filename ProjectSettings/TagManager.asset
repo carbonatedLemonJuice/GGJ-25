@@ -8,6 +8,7 @@ TagManager:
   - bubblePlayer
   - bubbleIncrease
   - upStream
+  - lightFlicker
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - green
   - yellow
   - redPlayerBubble
-  - 
+  - lightFlicker
   - 
   - 
   - 
