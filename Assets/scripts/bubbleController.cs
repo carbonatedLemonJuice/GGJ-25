@@ -16,15 +16,23 @@ public class bubbleController : MonoBehaviour
 
     [SerializeField] private bool decreaseOnHold;
 
+    private Color noAlpha, originalColor;
+
     private Vector2 previousPosition;
 
     private bool spaceBarReleased;
 
+    private SpriteRenderer sprite;
+
     private void Start()
     {
+        noAlpha.a = 0f;
+        sprite = GetComponent<SpriteRenderer>();
+        originalColor = sprite.color;
         spaceBarReleased = true;
         _rotateSpeed = rotationSpeed;
         decreaseOnHold = false;
+        
     }
 
     private void Update()
@@ -34,6 +42,8 @@ public class bubbleController : MonoBehaviour
         velocityChecker();
 
         rotateArrow();
+
+        arrowRemover();
     }
     
     private void spaceBarControl()
@@ -121,7 +131,7 @@ public class bubbleController : MonoBehaviour
 
     private void velocityChecker()
     {
-        if (rb.velocity.magnitude > 0.01f)
+        if (rb.velocity.magnitude > 0.09f)
         {
             _rotateSpeed = 0;
             Debug.Log("decreasing speed");
@@ -132,6 +142,22 @@ public class bubbleController : MonoBehaviour
         {
             _rotateSpeed = rotationSpeed; 
             rb.velocity = Vector2.zero;
+        }
+    }
+
+    private void arrowRemover()
+    {
+        
+        if (_rotateSpeed == 0 && !Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("setting alpha to zero");
+            sprite.color = noAlpha;
+            Debug.Log("alpha value: " +  sprite.color.a);
+        }
+        
+        else
+        {
+            sprite.color = originalColor;
         }
     }
 }
