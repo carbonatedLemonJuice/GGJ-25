@@ -6,6 +6,8 @@ TagManager:
   tags:
   - bounceCollider
   - bubblePlayer
+  - bubbleIncrease
+  - upStream
   layers:
   - Default
   - TransparentFX
@@ -15,11 +17,11 @@ TagManager:
   - UI
   - collision_1
   - player
-  - 
-  - 
-  - 
-  - 
-  - 
+  - red
+  - blue
+  - green
+  - yellow
+  - redPlayerBubble
   - 
   - 
   - 
