@@ -9,7 +9,7 @@ public class bubbleController : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float rotationSpeed;
     private float _rotateSpeed;
-    [SerializeField] private float radius, depletionRate, increaseRate, moveSpeed;
+    [SerializeField] private float radius, depletionRate, increaseRate, dampingVelocity;
     [SerializeField] private Slider powerBar;
     private float _angle;
     [SerializeField] private Rigidbody2D rb;
@@ -18,8 +18,11 @@ public class bubbleController : MonoBehaviour
 
     private Vector2 previousPosition;
 
+    private bool spaceBarReleased;
+
     private void Start()
     {
+        spaceBarReleased = true;
         _rotateSpeed = rotationSpeed;
         decreaseOnHold = false;
     }
@@ -40,6 +43,7 @@ public class bubbleController : MonoBehaviour
         {
             _rotateSpeed = 0;
             sliderIncrease();
+            spaceBarReleased = false;
         }
 
         if (powerBar.value == powerBar.maxValue && !decreaseOnHold)
@@ -63,7 +67,12 @@ public class bubbleController : MonoBehaviour
 
         if (!Input.GetKey(KeyCode.Space)) 
         {
-            movePlayerinArrowDirection();
+            if (!spaceBarReleased)
+            {
+                movePlayerinArrowDirection();
+                spaceBarReleased = true;
+            }
+
             _rotateSpeed = rotationSpeed;
             if (powerBar.value > 0)
             {
@@ -90,7 +99,11 @@ public class bubbleController : MonoBehaviour
         float radians2 = Mathf.Deg2Rad * _angle;
         Vector2 direction = new Vector2(MathF.Cos(radians2), MathF.Sin(radians2)) * radius;
 
-        rb.velocity = direction * powerBar.value;
+        float power = powerBar.value;
+
+        rb.velocity = direction * power;
+
+        Debug.Log("player moved in arrow direction");
     }
 
     private void rotateArrow()
@@ -111,11 +124,14 @@ public class bubbleController : MonoBehaviour
         if (rb.velocity.magnitude > 0.01f)
         {
             _rotateSpeed = 0;
+            Debug.Log("decreasing speed");
+            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, dampingVelocity * Time.deltaTime);
         }
 
         else if (!Input.GetKey(KeyCode.Space) && _rotateSpeed == 0) 
         {
             _rotateSpeed = rotationSpeed; 
+            rb.velocity = Vector2.zero;
         }
     }
 }
