@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class changeColorLayer : MonoBehaviour
+public class changeGreen : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Color color;
@@ -18,7 +18,7 @@ public class changeColorLayer : MonoBehaviour
         if (collision.CompareTag("bubblePlayer"))
         {
             spriteRenderer.color = color;
-            player.layer = LayerMask.NameToLayer("redPlayerBubble");
+            player.layer = LayerMask.NameToLayer("greenPlayer");
             gameObject.SetActive(false);
         }
     }

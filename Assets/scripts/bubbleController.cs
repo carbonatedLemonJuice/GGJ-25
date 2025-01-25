@@ -49,7 +49,7 @@ public class bubbleController : MonoBehaviour
     private void spaceBarControl()
     {
         //Debug.Log("function called");
-        if (Input.GetKey(KeyCode.Space) && !decreaseOnHold)
+        if (Input.GetKey(KeyCode.Space) && !decreaseOnHold && Time.timeScale != 0)
         {
             _rotateSpeed = 0;
             sliderIncrease();

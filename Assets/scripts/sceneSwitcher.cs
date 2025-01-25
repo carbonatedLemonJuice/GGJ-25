@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class bubblePopCeasurShell : MonoBehaviour
+public class sceneSwitcher : MonoBehaviour
 {
-    [SerializeField] private GameObject retryMenu;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("bubblePlayer"))
         {
-            Debug.Log("player died");
-            retryMenu.SetActive(true);
-            Time.timeScale = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

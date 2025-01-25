@@ -18,7 +18,6 @@ public class changeLightFrequency : MonoBehaviour
 
     private void Update()
     {
-        calculatedIntensity = Mathf.PerlinNoise(Time.time * changingSpeed, 0) * changingStrength - changingStrength / 2;
-        redLight.intensity = Mathf.Clamp(calculatedIntensity, 2, 10);
+        redLight.intensity = Mathf.PerlinNoise(Time.time * changingSpeed, 0) * (9 - 0.5f) + 0.5f;
     }
 }
