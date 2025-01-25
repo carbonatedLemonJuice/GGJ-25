@@ -48,7 +48,7 @@ public class bubbleController : MonoBehaviour
     
     private void spaceBarControl()
     {
-        Debug.Log("function called");
+        //Debug.Log("function called");
         if (Input.GetKey(KeyCode.Space) && !decreaseOnHold)
         {
             _rotateSpeed = 0;

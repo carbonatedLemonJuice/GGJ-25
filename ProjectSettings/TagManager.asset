@@ -9,6 +9,7 @@ TagManager:
   - bubbleIncrease
   - upStream
   - lightFlicker
+  - hostileProps
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - yellow
   - redPlayerBubble
   - lightFlicker
-  - 
+  - ceasurShell
   - 
   - 
   - 

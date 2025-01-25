@@ -7,7 +7,7 @@ public class arrowFlicker : MonoBehaviour
 {
     [SerializeField] private GameObject arrow;
     private SpriteRenderer arrowSprite;
-    private Color alpha1, alpha2, alpha3, alpha4, ogColor;
+    private Color alpha1, alpha2, alpha3, alpha4, ogColor, noAlpha;
     private bool coroutineRunning;
 
     private void Start()
@@ -15,9 +15,10 @@ public class arrowFlicker : MonoBehaviour
         coroutineRunning = false;
         arrowSprite = arrow.GetComponent<SpriteRenderer>();
         ogColor = arrowSprite.color;
+        noAlpha.a = 0;
         alpha2.a = 0.35f;
         alpha4.a = 0;
-        alpha3.a = 0.68f;
+        alpha3.a = 0.18f;
         alpha1.a = 0.5f;
     }
 
@@ -31,22 +32,25 @@ public class arrowFlicker : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        
+        arrowSprite.color = ogColor;
     }
 
     private IEnumerator flickerOnStay()
     {
         Debug.Log("coroutine called");
         coroutineRunning = true;
-        arrowSprite.color = alpha1;
+        /*arrowSprite.color = alpha1;
         yield return new WaitForSeconds(Random.Range(0.15f, 0.25f));
         arrowSprite.color = alpha2;
         yield return new WaitForSeconds(Random.Range(0.35f, 0.40f));
         arrowSprite.color = alpha3;
-        yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
-        arrowSprite.color = new Color(0, 0, 0, 0);
-        yield return new WaitForSeconds(Random.Range(0.85f, 1.45f));
-        arrowSprite.color = alpha4;
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));*/
+        Debug.Log("aplha value changed");
+        arrowSprite.color = alpha3; 
+        yield return new WaitForSeconds(Random.Range(12.5f, 13.45f));
+        arrowSprite.color = ogColor;
+        Debug.Log("coroutine ran successfully");
+        //arrowSprite.color = alpha4;
         coroutineRunning = false;
     }
 
@@ -59,7 +63,7 @@ public class arrowFlicker : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.35f, 0.40f));
         arrowSprite.color = alpha3;
         yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
-        arrowSprite.color = new Color(0, 0, 0, 0);
+        arrowSprite.color = noAlpha;
         yield return new WaitForSeconds(Random.Range(0.85f, 1.45f));
         arrowSprite.color = alpha4;
     }
