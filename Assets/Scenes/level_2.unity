@@ -2068,7 +2068,7 @@ GameObject:
   - component: {fileID: 774511091}
   - component: {fileID: 774511093}
   - component: {fileID: 774511092}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: aquarium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2130,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 20
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00093925, y: 0.00093925, z: 0}
   m_MaxChunkCount: 16
@@ -28761,7 +28761,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.47644466, g: 0.69182384, b: 0.69182384, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.80784315}
   m_Origin: {x: -40, y: -13, z: 0}
   m_Size: {x: 205, y: 31, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -36046,7 +36046,7 @@ Transform:
   m_GameObject: {fileID: 1509886767}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143.05, y: 2.6, z: -0.35214087}
+  m_LocalPosition: {x: 161.18, y: 2.6, z: -0.35214087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
