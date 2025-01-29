@@ -9,7 +9,12 @@ public class sceneSwitcher : MonoBehaviour
     {
         if (collision.CompareTag("bubblePlayer"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            sceneSwitch();
         }
+    }
+
+    public void sceneSwitch()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

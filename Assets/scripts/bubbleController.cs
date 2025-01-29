@@ -13,6 +13,7 @@ public class bubbleController : MonoBehaviour
     [SerializeField] private Slider powerBar;
     private float _angle;
     [SerializeField] private Rigidbody2D rb;
+    //[SerializeField] private ParticleSystem bubbleTrail;
 
     [SerializeField] private bool decreaseOnHold;
 
@@ -37,6 +38,8 @@ public class bubbleController : MonoBehaviour
 
     private void Update()
     {
+        //bubbleTrail.transform.position = player.transform.position;
+
         spaceBarControl();
 
         velocityChecker();
@@ -112,6 +115,7 @@ public class bubbleController : MonoBehaviour
         float power = powerBar.value;
 
         rb.velocity = direction * power;
+        //bubbleTrail.Play();
 
         Debug.Log("player moved in arrow direction");
     }
@@ -158,6 +162,7 @@ public class bubbleController : MonoBehaviour
         else
         {
             sprite.color = originalColor;
+            rb.velocity = new Vector2(0, 0);
         }
     }
 }

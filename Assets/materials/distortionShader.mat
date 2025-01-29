@@ -37,7 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Amplitude: 0.35
+    - _Blend: 0.117
+    - _NoiseScale: 5.4
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _PanSpeed: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

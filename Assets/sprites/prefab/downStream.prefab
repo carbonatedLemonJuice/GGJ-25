@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  yVelocity: -75
+  yVelocity: -105
 --- !u!1 &2146800856280887603
 GameObject:
   m_ObjectHideFlags: 0
